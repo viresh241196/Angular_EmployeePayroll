@@ -1,0 +1,60 @@
+<header class="header-content header">
+  <div class="logo-content">
+    <img src="..\assets\images\logo.png" alt="" />
+    <div>
+      <span class="emp-text">EMPLOYEE</span>
+      <span class="emp-text emp-payroll">PAYROLL</span>
+    </div>
+  </div>
+</header>
+<div class="main-content">
+  <div class="header-content">
+    <div class="emp-detail-text">Employee Details</div>
+    <a routerLink="/" class="add-button">
+      <img src="..\assets\icons\attach_file-24px.svg" alt="" />Add User
+    </a>
+  </div>
+  <div>
+    <table id="table-display" class="table">
+      <thead>
+        <tr>
+          <th>Profile</th>
+          <th>NAME</th>
+          <th>id</th>
+          <th>GENDER</th>
+          <th>DEPARTMENT</th>
+          <th>SALARY</th>
+          <th>START DATE</th>
+          <th>Notes</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employee">
+          <td>
+            <img class="profile" id="image1" [src]="emp.profilePic" />
+          </td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.empId }}</td>
+          <td>{{ emp.gender }}</td>
+          <td>{{ emp.departments }}</td>
+          <td>{{ emp.salary }}</td>
+          <td>{{ emp.startDate }}</td>
+          <td>{{ emp.note }}</td>
+          <td>
+            <img
+              class="img1"
+              src="..\assets\icons\delete-black-18dp.svg"
+              (click)="onDelete(emp.empId)"
+            />
+            <img
+              class="img"
+              src="..\assets\icons\create-black-18dp.svg"
+              (click)="onUpdate(emp)"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
